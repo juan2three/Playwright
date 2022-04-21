@@ -2,7 +2,7 @@
 
 ![Test](https://github.com/Tallyb/cucumber-playwright/workflows/Test/badge.svg)
 
-A starter repo for writing E2E tests based on Cucumber(7) with Playwright using Typescript.
+A starter repo for writing E2E tests based on Cucumber with Playwright using Typescript.
 
 ## Kudos
 
@@ -19,9 +19,6 @@ This repository is based on the [Cucumber-typescript-starter](https://github.com
 - Utilies function to help you with writing steps
 - VScode configuration to debug a single feature or an only scenario (run when located on the feature file)
 
-## Usage
-
-Create a repo based on this template and start writing your tests.
 
 ## To run your tests
 
@@ -46,7 +43,7 @@ npm run test
 
 ## Working with Page Objects
 
-I am not fond of the Page Object Model (POM) for testing. It feels like a leftover from Java world, and I do not think it fits the Javascript world. However, you can check [this PR](https://github.com/Tallyb/cucumber-playwright/pull/95/files) to see POM implementation. 
+You can check [this PR](https://github.com/Tallyb/cucumber-playwright/pull/95/files) to see POM implementation. 
 
 ## Debugging Features
 
