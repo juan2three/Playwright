@@ -12,6 +12,7 @@ import {
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
 import axios from 'axios';
+//import { unlink } from 'node:fs';
 
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
@@ -24,6 +25,13 @@ declare global {
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
 BeforeAll(async function () {
+  //Trying to delete/declutter the screenshot folder
+  // unlink('screenshots/features', (err) => {
+  //   if (err) throw err;
+  //   // eslint-disable-next-line no-console
+  //   console.log('successfully deleted /screenshots/');
+  // });
+
   switch (config.browser) {
     case 'firefox':
       browser = await firefox.launch(config.browserOptions);
@@ -52,7 +60,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
   this.context = await browser.newContext({
     acceptDownloads: true,
-    recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
+    recordVideo: process.env.PWVIDEO ? { dir: 'screenshotiis' } : undefined,
     viewport: { width: 1200, height: 800 },
   });
   this.server = axios.create();

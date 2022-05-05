@@ -1,13 +1,5 @@
 # cucumber-playwright
 
-![Test](https://github.com/Tallyb/cucumber-playwright/workflows/Test/badge.svg)
-
-A starter repo for writing E2E tests based on Cucumber with Playwright using Typescript.
-
-## Kudos
-
-This repository is based on the [Cucumber-typescript-starter](https://github.com/hdorgeval/cucumber7-ts-starter/) repo.
-
 ## What's inside
 
 - Typescript setup for writing steps with eslint/typescript and prettier
@@ -18,7 +10,6 @@ This repository is based on the [Cucumber-typescript-starter](https://github.com
 - Allure reports
 - Utilies function to help you with writing steps
 - VScode configuration to debug a single feature or an only scenario (run when located on the feature file)
-
 
 ## To run your tests
 
@@ -32,7 +23,7 @@ set the name of the browser. Available options: chromium, firefox, webkit
 
 On Linux and Mac you can write:
 
-`BROWSER=firefox npm run test` or `BROWSER=firefox npx cucumber-js` runs all tests using Firefox
+`BROWSER=chromium npm run test`, `BROWSER=webkit npx cucumber-js` or `BROWSER=firefox npm run <feature>` runs all tests using Firefox
 
 One Windows you need to write
 
@@ -41,9 +32,22 @@ set BROWSER=firefox
 npm run test
 ```
 
-## Working with Page Objects
+### Attaching data to report
 
-You can check [this PR](https://github.com/Tallyb/cucumber-playwright/pull/95/files) to see POM implementation. 
+## Screenshots
+
+```
+  //Add this to your step definition to take and attach a screenshot
+  const image = await page?.screenshot();
+  image && (await this.attach(image, 'image/png'));
+```
+
+## Plain text
+
+```
+  //Add this to your step definition to attach text
+  this.attach('add your text here', 'text/plain');
+```
 
 ## Debugging Features
 
@@ -88,5 +92,5 @@ In [cucumber.js](cucumber.js) file, modify the options.
 - run the command `npm run report`.
 
 ## To view allure report
-- run the command `npm run allure`.
 
+- run the command `npm run allure`.
